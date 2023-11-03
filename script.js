@@ -67,7 +67,7 @@ function fetchPhotos(photos) {
         const cardEl = document.createElement('div');
         cardEl.className = 'card';
         cardEl.innerHTML = `
-            <img src="${src.portrait}">
+            <img src="${src.portrait}" loading="lazy">
             <div class="details">
                 <div class="photographer">
                     <div><i class="fas fa-camera"></i></div>
@@ -107,7 +107,7 @@ function fetchPhotos(photos) {
                             </button>
                         </div>
                     </div>
-                    <img src="${src.portrait}">
+                    <img src="${src.portrait}" loading="lazy">
                 </div>
             `
             modal.querySelector('.modal-close-overlay').addEventListener('click', closeModal);
@@ -139,11 +139,9 @@ function downloadImage(image) {
     fetch(image)
     .then(res => res.blob())
     .then(file => {
-        console.log(file);
         const a = document.createElement('a');
         a.href = URL.createObjectURL(file);
         a.download = `image.${file.type.slice(file.type.indexOf('/') + 1)}`;
         a.click();
-        console.log(a);
     })
 }

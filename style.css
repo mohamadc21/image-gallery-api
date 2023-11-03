@@ -247,6 +247,10 @@ button:hover {
     transition: .2s ease;
 }
 
+.load-more:disabled {
+    opacity: 0.8;
+}
+
 .load-more:hover {
     background-color: #46218b;
 }
